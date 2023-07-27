@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="style.css">
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--Font  awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 
 </head>
 <body>
@@ -49,28 +52,30 @@
 
     <!-- about section-->
     <section id="about">
-        <div class="container mt-4 pt-4">
-            <h1 class="text-center" style="padding: 50px; margin-bottom: -10px; color: black;">ABOUT ME</h1>
+        <div class="container mt-3 contactContent">
+            <h1 class="text-center" style="color: black; margin: 40px;">About Me</h1>
             <div class="row mt-4">
-                <div class="col-lg-4">
-                    <img style=" border:transparent; border-radius: 50%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);; margin-bottom:25px; margin-top: -20px; margin-left: 20px; width: 300px; height: 400px; background-color:transparent;" src="MyAbout1.png" class= "imageAboutPage" alt="">
-                </div>
-
-                <div class="col-lg-8">
-                    <p style="font-size: 30px; margin-left: 50px;">It's <span style="color:aqua; text-shadow: 2px 2px black; font-weight: bold; font-size: 40px;">JEYA PRAKASH</span></p>
-                    <div class="row mt-3">
-                        <div class="col-md-6">
-                            <p style="font-size: 30px; margin-left: 50px; color: black; text-shadow: 1px 1px black;">WEB DEVELOPER AND UI/UX DESIGNER</p>
+                <div class="col-lg-6">
+                    <div style="max-width:100%;overflow:hidden;color:red;width:500px;height:500px;">
+                        <div id="embedmap-canvas" style="height:100%; width:100%;max-width:100%;">
+                            <img src="Me.jpg" width="100%"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                         </div>
                     </div>
-                    <div class="row mt-3">
-                        <p style="font-size: 20px; margin-left: 5px; color: white; text-shadow: 1px 1px black;">I Persuing my degree in Annamalai University in the stream of Computer science and Engineering.<br> I Proficient in Web  Development , UI/UX Designing and python.<br> I am very passionate about Web Development implementing and launching new projects and Producing Quality Works and strive to better myself as a developer.<br> 
-                            My specialties include  quickly learning new skills and ability to translate  business requirements into technical solutions.<br>
-                            Looking to start a career as an entry level software engineer  with a reputed  firm driven by technology.
-                        </p>
-                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h2>Its <span><b>Jeya Prakash</b></span></h2>
+                    <h3 style="color: black;">Web Developer and UI/UX Designer</h3>
+                    <br>
+                    <p class="col-lg-8" style="font-size: large;">I Pursuing my degree in Annamalai University in the stream of Computer science and Engineering.
+                        I Proficient in Web Development , UI/UX Designing and python.
+                        I am very passionate about Web Development implementing and launching new projects and Producing Quality Works and strive to better myself as a developer.
+                        My specialties include quickly learning new skills and ability to translate business requirements into technical solutions.
+                        Looking to start a career as an entry level software engineer with a reputed firm driven by technology.</p>
+                        <a href="JP_Resume.pdf" target="_blank" download="" type="button" class="btn btn-outline-primary" id="resumeButton">Download Resume</a>
+
                 </div>
             </div>
+        </div>
     </section>
 
     <!--skills Sections-->
@@ -122,10 +127,9 @@
                             Working on server-side software, which focuses on everything you can't see on a website. I Surely ensures the website performs correctly, focusing on databases by using...
                             </p>
                             <ul style="list-style-type:circle;">
-                                <li>C Programming</li>
-                                <li>C++</li>
-                                <li>Python</li>
-                                <li>MySQL</li>
+                                <li>C/C++ Programming</li>
+                                <li>Python Programming</li>
+                                <li>SQL Programming</li>
                             </ul>
                         </div>
                     </div>  
@@ -170,10 +174,10 @@
                     <div class="card portfolioContent">
                         <img class="card-img-top" src="E-commerce.jpg" alt="Card image" style="width:100%">
                         <div class="card-body">
-                            <h4 class="card-title mt-4">E-Commerce Website</h4>
-                            <p class="card-text mt-4">Creating a website for <br> Offset Printing Company.</p>
+                            <h4 class="card-title mt-4">Business Website</h4>
+                            <p class="card-text mt-4">Creating a business website for JPZON SOFTWARES.</p>
                             <div class="text-center">
-                                <a href="#" class="btns">Link</a>
+                                <a href="https://jpzonsoftwares.netlify.app/" target="_blank" class="btns">Link</a>
                             </div>
                         </div>
                     </div>
@@ -185,7 +189,7 @@
     <!-- contact section-->
     <section id="contact">
         <div class="container mt-3 contactContent">
-            <h1 class="text-center" style="color: black; margin: 10px;">Contact Me</h1>
+            <h1 class="text-center" style="color: black; margin: 40px;">Contact Me</h1>
 
             <div class="row mt-4">
                 <div class="col-lg-6">
@@ -199,24 +203,63 @@
                         </style>
                     </div>
                 </div>
-
                 <div class="col-lg-6">
                     <!-- form fields -->
-                    <form>
-                        <input type="text" class="form-control form-control-lg" placeholder="Name">
-                        <input type="email" class="form-control mt-3" placeholder="Email">
-                        <input type="text" class="form-control mt-3" placeholder="Subject">
+                    <form onsubmit="sendEmail(); reset(); return false;">
+                        <input type="text" id="name" class="form-control form-control-lg" name="name" placeholder="Name" required>
                         <div class="mb-3 mt-3">
-                            <textarea class="form-control" rows="5" id="comment" name="text" placeholder="Project Details"></textarea>
+                            <input type="email" id="email" class="form-control form-control-lg" placeholder="Email" required>
                         </div>
+                        <div class="mb-3 mt-3">
+                            <textarea class="form-control" rows="5" id="comment" name="project_details" placeholder="Message"></textarea>
+                        </div>
+                        <input type="submit" name="submit" value="Send Email" class="send-button">
                     </form>
-                    <button type="button" class="btns active">Contact Me</button>
-                    
                 </div>
-
+                            
             </div>
         </div>
     </section>
+    <!--Footer Section-->
+    <footer class="w3-center w3-black w3-padding-64">
+        <a href="#home" class="w3-button w3-light-grey"><i class="fas fa-arrow-up w3-margin-right"></i>To the top</a>
+        <div class="w3-xlarge w3-section w3-margin-right-10">
+            <a href="https://www.instagram.com/itz.jxp/" target="_blank"><i class="fab fa-instagram w3-hover-opacity" style="padding-top: 50px;"></i></a>&nbsp;
+            <a href="https://www.linkedin.com/in/jeya-prakash-s-a2aa18225/"  target="_blank"><i class="fab fa-linkedin w3-hover-opacity"></i></a>&nbsp;
+            <a href="https://www.facebook.com/jeyaprakash002jp/" target="_blank"><i class="fab fa-facebook w3-hover-opacity"></i></a>
+        </div>
+        <p class="w3-medium" style="padding-top: 30px;">&copy; 2023 This website was created by <b>Jeya Prakash</b>. All rights received.</p>
+    </footer>  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail() {
+            Email.send({
+                Host: "smtp.gmail.com",
+                Username: "jeyaprakashs04@gmail.com",
+                Password: "AC59CCFA9409C5D0118F4080554D2AEA0115",
+                To: "jeyaprakashs04@gmail.com",
+                From: document.getElementById("email").value,
+                Subject: "Enquiry From portfolio",
+                Body: "Name:" + document.getElementById("name").value
+                    + "<br> Email:" + document.getElementById("email").value
+                    + "<br> Message:" + document.getElementById("comment").value // Use correct ID for textarea
+            }).then(
+                message => alert("Message Sent Successfully")
+            );
+        }
+        function downloadResume() {
+            var fileURL = 'file:///D:/PROJECT/.vscode/portfolio/JP_Resume.pdf';
+            var fileName = 'JP_Resume.pdf';
+            var a = document.createElement('a');
+            a.href = fileURL;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removechild(a);
+        };       
+</script>
+
+    </script>
 </body>
 </html>
